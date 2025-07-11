@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body, ul {
   margin: 0;
   padding: 0;
@@ -5,9 +9,11 @@ body, ul {
 
 body {
   font-family: 'Segoe UI', sans-serif;
+  background-color: #f2f4f3;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Banner/Header */
 .banner {
   display: flex;
   justify-content: space-between;
@@ -15,6 +21,10 @@ body {
   background-color: #2e8b57;
   padding: 1em 2em;
   color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo {
@@ -24,16 +34,22 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 2em;
+  gap: 1.5em;
 }
 
 .nav-links li a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  padding: 0.4em 0.6em;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
-/* Hero */
+.nav-links li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .hero {
   background-size: cover;
   background-position: center;
@@ -46,72 +62,86 @@ body {
 
 .hero-overlay {
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 1em 2em;
+  padding: 1.2em 2em;
   color: white;
-  font-size: 1.5em;
+  font-size: 1.7em;
   border-radius: 10px;
+  text-align: center;
+  max-width: 90%;
 }
 
-/* Content */
 .content {
   max-width: 800px;
-  margin: 2em auto;
-  padding: 1em;
+  margin: 3em auto;
+  padding: 2em;
   text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 }
 
 .content h2 {
-  font-size: 2em;
+  font-size: 2.2em;
   color: #2e8b57;
+  margin-bottom: 0.4em;
 }
 
 .content h3 {
-  margin-top: 2em;
+  margin-top: 2.5em;
+  font-size: 1.4em;
   color: #444;
 }
 
 .content p {
-  font-size: 1em;
-  color: #333;
-  margin-bottom: 1em;
+  font-size: 1.1em;
+  color: #444;
+  margin-bottom: 1.2em;
 }
 
 .content ul {
   text-align: left;
   margin: 1em auto;
   display: inline-block;
+  font-size: 1em;
+  line-height: 1.7;
   color: #333;
 }
 
 .book-btn, .gallery-btn {
   display: inline-block;
-  margin-top: 1.5em;
-  padding: 0.7em 1.5em;
+  margin: 2em 1em 1em;
+  padding: 0.8em 1.6em;
   background-color: #2e8b57;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .book-btn:hover, .gallery-btn:hover {
   background-color: #1e5f3c;
 }
 
-/* Gallery */
 .gallery {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1em;
-  margin-top: 1em;
+  margin-top: 2em;
 }
 
 .gallery img {
-  width: 150px;
-  border-radius: 5px;
+  width: 160px;
+  height: auto;
+  border-radius: 8px;
   border: 2px solid #ccc;
-  transition: transform 0.2s;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
 .gallery img:hover {
@@ -119,11 +149,43 @@ body {
   border-color: #2e8b57;
 }
 
-/* Footer */
 .footer {
   background-color: #e91e63;
   color: white;
   text-align: center;
   padding: 1em;
-  margin-top: 3em;
+  margin-top: 4em;
+  font-size: 0.95em;
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1em;
+  }
+
+  .hero-overlay {
+    font-size: 1.3em;
+    padding: 1em;
+  }
+
+  .content {
+    margin: 1.5em 1em;
+    padding: 1.5em 1em;
+  }
+
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery img {
+    width: 90%;
+  }
+
+  .book-btn, .gallery-btn {
+    width: 90%;
+    margin: 1em 0;
+  }
 }
